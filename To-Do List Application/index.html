@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myToDo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <img src="images/4qpr3y4w-removebg-preview.png" alt="COPLANR Logo" class="logo">
+            <h1>COPLANR To-Do List</h1>
+        </div>
+        <div class="nav-actions">
+            <input type="text" id="search-input" class="input nav-search" placeholder="Search tasks..." maxlength="100">
+            <button id="authButton" class="button_add" onclick="toggleAuth()">Login</button>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div id="authPage">
+        <div class="menu" id="loginMenu">
+            <div class="logo">
+            </div>
+            <h1>Login</h1>
+            <form id="loginForm" class="auth-form active">
+                <input type="text" id="loginUserName" class="input" placeholder="UserName" maxlength="50">
+                <input type="password" id="loginPassword" class="input" placeholder="Password" maxlength="50">
+                <button type="button" class="button_add" onclick="login()">Login</button>
+                <span class="toggle-link" onclick="showRegister()">Don't have an account? Register here</span>
+            </form>
+        </div>
+
+        <div class="menu" id="registerMenu" style="display: none;">
+            <div class="logo">
+                <img src="images/4qpr3y4w-removebg-preview.png" alt="COPLANR Logo" class="img">
+            </div>
+            <h1>Register</h1>
+            <form id="registerForm" class="auth-form">
+                <input type="text" id="registerFirstName" class="input" placeholder="First Name" maxlength="50">
+                <input type="text" id="registerLastName" class="input" placeholder="Last Name" maxlength="50">
+                <input type="text" id="registerUserName" class="input" placeholder="UserName" maxlength="50">
+                <input type="email" id="registerEmail" class="input" placeholder="Email" maxlength="100">
+                <input type="password" id="registerPassword" class="input" placeholder="Password" maxlength="50">
+                <button type="button" class="button_add" onclick="register()">Register</button>
+                <span class="toggle-link" onclick="showLogin()">Already have an account? Login here</span>
+            </form>
+        </div>
+    </div>
+
+    <div id="todoPage" style="display: none;">
+        <h1 id="welcomeMessage"></h1>
+        <form id="new-task" class="task-input-container">
+            <input type="text" id="addTaskTitle" class="input" placeholder="Task Title (max 100 chars)" maxlength="100">
+            <textarea id="addTaskDescription" class="input" placeholder="Task Description (max 250 chars)" maxlength="250" style="resize: none; height: 80px;"></textarea>
+            <select id="addTaskStatus" class="input">
+                <option value="Pending">Pending</option>
+                <option value="Not Done">Not Done</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+            <button type="button" class="button_add" onclick="addTask()">Add</button>
+        </form>
+        <div class="view_task">
+            <div class="task-grid">
+                <div class="task-header">Task</div>
+                <div class="task-header">Status</div>
+                <div class="task-header">Description</div>
+                <div id="taskRows"></div>
+            </div>
+            <button class="view_task_button" onclick="viewAllTasks()">View All Tasks</button>
+        </div>
+    </div>
+</div>
+<script src="to-do_list.js"></script>
+</body>
+</html>
