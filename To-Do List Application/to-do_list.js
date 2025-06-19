@@ -1,9 +1,5 @@
 const URL = 'http://localhost:8080/api';
 
-const getAuthToken = () => {
-    return localStorage.getItem('authToken') || '';
-};
-
 const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem('currentUser')) || {};
 };
